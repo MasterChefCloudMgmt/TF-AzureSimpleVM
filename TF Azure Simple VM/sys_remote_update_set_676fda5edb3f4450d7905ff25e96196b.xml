@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2020-03-29 08:17:47">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Cloud Management: Terraform Connector">9b04ffc20b1323002530a387b6673a1d</application>
+<application_name>Cloud Management: Terraform Connector</application_name>
+<application_scope>sn_cmp_terraform</application_scope>
+<application_version>1.0.8</application_version>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>CMPAutogen-TF Azure Simple VM1 2020-03-29 08:16:48</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>af6fda5edb3f4450d7905ff25e961960</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-03-29 08:16:48</sys_created_on>
+<sys_id>676fda5edb3f4450d7905ff25e96196b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-03-29 08:16:48</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Cloud Management: Terraform Connector">9b04ffc20b1323002530a387b6673a1d</application>
+<category>customer</category>
+<comments/>
+<name>sn_cmp_rb_resourcescript_450b7eec731373007559d65ee2f6a7b4</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sn_cmp_rb_resourcescript"&gt;&lt;sn_cmp_rb_resourcescript action="INSERT_OR_UPDATE"&gt;&lt;name&gt;Azure_TF_Delete_Stack&lt;/name&gt;&lt;resource display_value="Azure Datacenter"&gt;ddf5cd6bd722220097eb6ccf6e610346&lt;/resource&gt;&lt;script&gt;function processResponse(response, cloudServiceAccountId, ldc, correlationId,&amp;#13;
+    step, requestorContext, stackId) {&amp;#13;
+	&amp;#13;
+	var responseObject = global.JSON.parse(response);&amp;#13;
+	var tfResponse = responseObject.terraform;&amp;#13;
+	var tfStateAfter = global.JSON.parse(tfResponse['state.after']);&amp;#13;
+	var tfStateBefore = global.JSON.parse(tfResponse['state.before']);&amp;#13;
+	&amp;#13;
+	var processor = new sn_cmp_terraform.DeprovisionTerraformResponseProcessor();&amp;#13;
+	&amp;#13;
+	//there is no support for before state currently, hence its handled internally&amp;#13;
+    var retiredStackItems = processor.updateStackItemTermination(stackId, tfStateBefore, tfStateAfter);&amp;#13;
+    if(retiredStackItems)&amp;#13;
+        gs.info('Retired CI\'s of stack items');&amp;#13;
+    else&amp;#13;
+        gs.warn('Havent retired CI\'s of stack items');&amp;#13;
+	&amp;#13;
+	return global.JSON.stringify([{}]);&amp;#13;
+}&lt;/script&gt;&lt;script_js&gt;&lt;![CDATA[function processResponse(response, cloudServiceAccountId, ldc, correlationId,
+    step, requestorContext, stackId) {
+	
+	var responseObject = global.JSON.parse(response);
+	var tfResponse = responseObject.terraform;
+	var tfStateAfter = global.JSON.parse(tfResponse['state.after']);
+	var tfStateBefore = global.JSON.parse(tfResponse['state.before']);
+	
+	var processor = new sn_cmp_terraform.DeprovisionTerraformResponseProcessor();
+	
+	//there is no support for before state currently, hence its handled internally
+    var retiredStackItems = processor.updateStackItemTermination(stackId, tfStateBefore, tfStateAfter);
+    if(retiredStackItems)
+        gs.info('Retired CI\'s of stack items');
+    else
+        gs.warn('Havent retired CI\'s of stack items');
+	
+	return global.JSON.stringify([{}]);
+}]]&gt;&lt;/script_js&gt;&lt;sys_class_name&gt;sn_cmp_rb_resourcescript&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2019-08-13 07:06:24&lt;/sys_created_on&gt;&lt;sys_id&gt;450b7eec731373007559d65ee2f6a7b4&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Azure_TF_Delete_Stack&lt;/sys_name&gt;&lt;sys_package display_value="Cloud Management: Terraform Connector" source="sn_cmp_terraform"&gt;9b04ffc20b1323002530a387b6673a1d&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Cloud Management: Terraform Connector"&gt;9b04ffc20b1323002530a387b6673a1d&lt;/sys_scope&gt;&lt;sys_update_name&gt;sn_cmp_rb_resourcescript_450b7eec731373007559d65ee2f6a7b4&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2019-08-13 07:06:24&lt;/sys_updated_on&gt;&lt;type&gt;7&lt;/type&gt;&lt;/sn_cmp_rb_resourcescript&gt;&lt;/record_update&gt;</payload>
+<payload_hash>367836786</payload_hash>
+<remote_update_set display_value="CMPAutogen-TF Azure Simple VM1 2020-03-29 08:16:48">676fda5edb3f4450d7905ff25e96196b</remote_update_set>
+<replace_on_upgrade>true</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-03-29 08:16:48</sys_created_on>
+<sys_id>2f6fda5edb3f4450d7905ff25e96196b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>171255d5e3d0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-03-29 08:16:48</sys_updated_on>
+<table/>
+<target_name>Azure_TF_Delete_Stack</target_name>
+<type>Resource Script</type>
+<update_domain>global</update_domain>
+<update_guid>eb6fda5ed73f4450546b7777ce31e764</update_guid>
+<update_guid_history>eb6fda5ed73f4450546b7777ce31e764:367836786,6e1fb6937117c4106acc2d2bf8c5da66:367836786</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Cloud Management: Terraform Connector">9b04ffc20b1323002530a387b6673a1d</application>
+<category>customer</category>
+<comments/>
+<name>sn_cmp_rb_resourcescript_ff997698731373007559d65ee2f6a762</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sn_cmp_rb_resourcescript"&gt;&lt;sn_cmp_rb_resourcescript action="INSERT_OR_UPDATE"&gt;&lt;name&gt;Azure_TF_Provision_Response_Processor&lt;/name&gt;&lt;resource display_value="Azure Datacenter"&gt;ddf5cd6bd722220097eb6ccf6e610346&lt;/resource&gt;&lt;script&gt;function processResponse (response, cloudServiceAccountId, ldc,&amp;#13;
+						  correlationId, step, requestorContext, stackId) {&amp;#13;
+	// Terraform response processor.&amp;#13;
+	var responseObject = global.JSON.parse(response);&amp;#13;
+	var tfState = global.JSON.parse(responseObject.terraform.state);&amp;#13;
+	var processor = new sn_cmp_terraform.TerraformResponseProcessor();&amp;#13;
+	var processedResponses = processor.processResponse(tfState, cloudServiceAccountId,  ldc,&amp;#13;
+							   correlationId, step, requestorContext, stackId);&amp;#13;
+	return global.JSON.stringify(processedResponses);&amp;#13;
+} &amp;#13;
+&lt;/script&gt;&lt;script_js&gt;&lt;![CDATA[function processResponse (response, cloudServiceAccountId, ldc,
+						  correlationId, step, requestorContext, stackId) {
+	var responseObject = global.JSON.parse(response);
+	var tfState = global.JSON.parse(responseObject.terraform.state);
+	var processor = new sn_cmp_terraform.TerraformResponseProcessor();
+	var processedResponses = processor.processResponse(tfState, cloudServiceAccountId,  ldc,
+							   correlationId, step, requestorContext, stackId);
+	return global.JSON.stringify(processedResponses);
+} 
+]]&gt;&lt;/script_js&gt;&lt;sys_class_name&gt;sn_cmp_rb_resourcescript&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2019-08-12 12:21:37&lt;/sys_created_on&gt;&lt;sys_id&gt;ff997698731373007559d65ee2f6a762&lt;/sys_id&gt;&lt;sys_mod_count&gt;4&lt;/sys_mod_count&gt;&lt;sys_name&gt;Azure_TF_Provision_Response_Processor&lt;/sys_name&gt;&lt;sys_package display_value="Cloud Management: Terraform Connector" source="sn_cmp_terraform"&gt;9b04ffc20b1323002530a387b6673a1d&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Cloud Management: Terraform Connector"&gt;9b04ffc20b1323002530a387b6673a1d&lt;/sys_scope&gt;&lt;sys_update_name&gt;sn_cmp_rb_resourcescript_ff997698731373007559d65ee2f6a762&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2019-08-13 07:04:44&lt;/sys_updated_on&gt;&lt;type&gt;7&lt;/type&gt;&lt;/sn_cmp_rb_resourcescript&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-1054306654</payload_hash>
+<remote_update_set display_value="CMPAutogen-TF Azure Simple VM1 2020-03-29 08:16:48">676fda5edb3f4450d7905ff25e96196b</remote_update_set>
+<replace_on_upgrade>true</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-03-29 08:16:48</sys_created_on>
+<sys_id>676fda5edb3f4450d7905ff25e96196c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>171255d5eb20000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-03-29 08:16:48</sys_updated_on>
+<table/>
+<target_name>Azure_TF_Provision_Response_Processor</target_name>
+<type>Resource Script</type>
+<update_domain>global</update_domain>
+<update_guid>2f6fda5e113f445014c09ca066927e69</update_guid>
+<update_guid_history>2f6fda5e113f445014c09ca066927e69:-1054306654,aa1fb6931217c4107389e8265ff6e268:-1054306654</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Cloud Management: Terraform Connector">9b04ffc20b1323002530a387b6673a1d</application>
+<category>customer</category>
+<comments/>
+<name>sn_cmp_rb_guest_interface_3e6ece9073df33007559d65ee2f6a718</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sn_cmp_rb_guest_interface"><sn_cmp_rb_guest_interface action="INSERT_OR_UPDATE"><guestinterface display_value="Terraform Orchestration Interface">52bb8c2053632300d53bddeeff7b129a</guestinterface><resource display_value="Azure Datacenter">ddf5cd6bd722220097eb6ccf6e610346</resource><sys_class_name>sn_cmp_rb_guest_interface</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2019-08-12 09:12:11</sys_created_on><sys_id>3e6ece9073df33007559d65ee2f6a718</sys_id><sys_mod_count>0</sys_mod_count><sys_name>ddf5cd6bd722220097eb6ccf6e610346</sys_name><sys_package display_value="Cloud Management: Terraform Connector" source="sn_cmp_terraform">9b04ffc20b1323002530a387b6673a1d</sys_package><sys_policy/><sys_scope display_value="Cloud Management: Terraform Connector">9b04ffc20b1323002530a387b6673a1d</sys_scope><sys_update_name>sn_cmp_rb_guest_interface_3e6ece9073df33007559d65ee2f6a718</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2019-08-12 09:12:11</sys_updated_on></sn_cmp_rb_guest_interface></record_update>]]></payload>
+<payload_hash>-796092786</payload_hash>
+<remote_update_set display_value="CMPAutogen-TF Azure Simple VM1 2020-03-29 08:16:48">676fda5edb3f4450d7905ff25e96196b</remote_update_set>
+<replace_on_upgrade>true</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-03-29 08:16:48</sys_created_on>
+<sys_id>6b6fda5edb3f4450d7905ff25e96196b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>171255d5e150000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-03-29 08:16:48</sys_updated_on>
+<table/>
+<target_name>ddf5cd6bd722220097eb6ccf6e610346</target_name>
+<type>Resource Guest Interface</type>
+<update_domain>global</update_domain>
+<update_guid>ef6fda5eb73f445091688e792e820762</update_guid>
+<update_guid_history>ef6fda5eb73f445091688e792e820762:-796092786,f91fb6934117c410a32fba7d24dc7561:-796092786</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Cloud Management: Terraform Connector">9b04ffc20b1323002530a387b6673a1d</application>
+<category>customer</category>
+<comments/>
+<name>sn_cmp_rb_resourcescript_df4b49d0536200109dd4ddeeff7b12d4</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sn_cmp_rb_resourcescript"&gt;&lt;sn_cmp_rb_resourcescript action="INSERT_OR_UPDATE"&gt;&lt;name&gt;Azure_TFE_Destroy_Resources&lt;/name&gt;&lt;resource display_value="Azure Datacenter"&gt;ddf5cd6bd722220097eb6ccf6e610346&lt;/resource&gt;&lt;script&gt;function processResponse(response, cloudServiceAccountId, ldc, correlationId,&amp;#13;
+    step, requestorContext, stackId) {&amp;#13;
+&amp;#13;
+    var responseObject = global.JSON.parse(response);&amp;#13;
+    var tfStateAfter = responseObject.state;&amp;#13;
+    var tfStateBefore = {};&amp;#13;
+&amp;#13;
+    var processor = new sn_cmp_terraform.DeprovisionTerraformResponseProcessor();&amp;#13;
+&amp;#13;
+    //there is no support for before state currently, hence its handled internally&amp;#13;
+    var retiredStackItems = processor.updateStackItemTermination(stackId, tfStateBefore, tfStateAfter);&amp;#13;
+    if (retiredStackItems)&amp;#13;
+        gs.info("Retired CI's of stack items");&amp;#13;
+    else&amp;#13;
+        gs.warn("Haven't retired CI's of stack items");&amp;#13;
+&amp;#13;
+    return global.JSON.stringify([{}]);&amp;#13;
+}&lt;/script&gt;&lt;script_js&gt;&lt;![CDATA[function processResponse(response, cloudServiceAccountId, ldc, correlationId,
+    step, requestorContext, stackId) {
+
+    var responseObject = global.JSON.parse(response);
+    var tfStateAfter = responseObject.state.after;
+    var tfStateBefore = responseObject.state.before;
+
+    var processor = new sn_cmp_terraform.DeprovisionTerraformResponseProcessor();
+
+    //there is no support for before state currently, hence its handled internally
+    var retiredStackItems = processor.updateStackItemTermination(stackId, tfStateBefore, tfStateAfter);
+    if (retiredStackItems)
+        gs.info("Retired CI's of stack items");
+    else
+        gs.warn("Haven't retired CI's of stack items");
+
+    return global.JSON.stringify([{}]);
+}]]&gt;&lt;/script_js&gt;&lt;sys_class_name&gt;sn_cmp_rb_resourcescript&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-01-20 17:43:27&lt;/sys_created_on&gt;&lt;sys_id&gt;df4b49d0536200109dd4ddeeff7b12d4&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;Azure_TFE_Destroy_Resources&lt;/sys_name&gt;&lt;sys_package display_value="Cloud Management: Terraform Connector" source="sn_cmp_terraform"&gt;9b04ffc20b1323002530a387b6673a1d&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Cloud Management: Terraform Connector"&gt;9b04ffc20b1323002530a387b6673a1d&lt;/sys_scope&gt;&lt;sys_update_name&gt;sn_cmp_rb_resourcescript_df4b49d0536200109dd4ddeeff7b12d4&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-01-22 11:49:39&lt;/sys_updated_on&gt;&lt;type&gt;7&lt;/type&gt;&lt;/sn_cmp_rb_resourcescript&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-1562885306</payload_hash>
+<remote_update_set display_value="CMPAutogen-TF Azure Simple VM1 2020-03-29 08:16:48">676fda5edb3f4450d7905ff25e96196b</remote_update_set>
+<replace_on_upgrade>true</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-03-29 08:16:48</sys_created_on>
+<sys_id>a36fda5edb3f4450d7905ff25e96196c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>171255d5e8f0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-03-29 08:16:48</sys_updated_on>
+<table/>
+<target_name>Azure_TFE_Destroy_Resources</target_name>
+<type>Resource Script</type>
+<update_domain>global</update_domain>
+<update_guid>636fda5e463f445033579358e2a2f168</update_guid>
+<update_guid_history>636fda5e463f445033579358e2a2f168:-1562885306,b2bd30585be3481088cfd634a2b9312b:-1562885306</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Cloud Management: Terraform Connector">9b04ffc20b1323002530a387b6673a1d</application>
+<category>customer</category>
+<comments/>
+<name>sn_cmp_rb_resourcescript_7e0fa2f273d200107559d65ee2f6a7b8</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sn_cmp_rb_resourcescript"&gt;&lt;sn_cmp_rb_resourcescript action="INSERT_OR_UPDATE"&gt;&lt;name&gt;Azure_TFE_Provision_Response_Processor&lt;/name&gt;&lt;resource display_value="Azure Datacenter"&gt;ddf5cd6bd722220097eb6ccf6e610346&lt;/resource&gt;&lt;script&gt;function processResponse(response, cloudServiceAccountId, ldc,&amp;#13;
+    correlationId, step, requestorContext, stackId) {&amp;#13;
+    var responseObject = global.JSON.parse(response);&amp;#13;
+&amp;#13;
+    var processor = new sn_cmp_terraform.TerraformResponseProcessor();&amp;#13;
+    var processedResponses = processor.processResponse(responseObject.state, cloudServiceAccountId, ldc,&amp;#13;
+        correlationId, step, requestorContext, stackId);&amp;#13;
+&amp;#13;
+    var configObjectID = '';&amp;#13;
+    //Get workload provider id from API Step&amp;#13;
+    var providerId = new sn_cmp_terraform.GetWorkloadProperties().getOrderStepInputParameterValue(correlationId, 'config_provider_id');&amp;#13;
+&amp;#13;
+    var gr = new GlideRecord("cmdb_ci_workload_config_provider");&amp;#13;
+    if (gr.get(providerId))&amp;#13;
+        configObjectID = gr.object_id + '';&amp;#13;
+&amp;#13;
+    var workspaceResp = responseObject.workspace;&amp;#13;
+    var templateInfo = {&amp;#13;
+        "cmdb_ci_tfe_workspace": {&amp;#13;
+            "identification": {&amp;#13;
+                "cmdb_ci_tfe_org": {&amp;#13;
+                    "criterion": {&amp;#13;
+                        "object_id": configObjectID&amp;#13;
+                    }&amp;#13;
+                },&amp;#13;
+                "cmdb_ci_tfe_workspace": {&amp;#13;
+                    "criterion": {&amp;#13;
+                        "object_id": workspaceResp.id&amp;#13;
+                    }&amp;#13;
+                },&amp;#13;
+            },&amp;#13;
+            "attributes": {&amp;#13;
+                "name": workspaceResp.name,&amp;#13;
+                "object_id": workspaceResp.id,&amp;#13;
+                "terraform_version": workspaceResp.tf_version,&amp;#13;
+                "description": workspaceResp.description,&amp;#13;
+                "permissions": global.JSON.stringify(workspaceResp.permissions),&amp;#13;
+                "actions": global.JSON.stringify(workspaceResp.actions),&amp;#13;
+                "auto_apply": workspaceResp.auto_apply&amp;#13;
+            },&amp;#13;
+            "relationships": {}&amp;#13;
+        }&amp;#13;
+    };&amp;#13;
+&amp;#13;
+    processedResponses.push(templateInfo);&amp;#13;
+    return global.JSON.stringify(processedResponses);&amp;#13;
+}&lt;/script&gt;&lt;script_js&gt;&lt;![CDATA[function processResponse(response, cloudServiceAccountId, ldc,
+    correlationId, step, requestorContext, stackId) {
+    var responseObject = global.JSON.parse(response);
+
+    var processor = new sn_cmp_terraform.TerraformResponseProcessor();
+    var processedResponses = processor.processResponse(responseObject.state, cloudServiceAccountId, ldc,
+        correlationId, step, requestorContext, stackId);
+
+    var configObjectID = '';
+    //Get workload provider id from API Step
+    var providerId = new sn_cmp_terraform.GetWorkloadProperties().getOrderStepInputParameterValue(correlationId, 'config_provider_id');
+
+    var gr = new GlideRecord("cmdb_ci_workload_config_provider");
+    if (gr.get(providerId))
+        configObjectID = gr.object_id + '';
+
+    var workspaceResp = responseObject.workspace;
+	var workspaceRespData = workspaceResp['data'];
+    var templateInfo = {
+        "cmdb_ci_tfe_workspace": {
+            "identification": {
+                "cmdb_ci_tfe_org": {
+                    "criterion": {
+                        "object_id": configObjectID
+                    }
+                },
+                "cmdb_ci_tfe_workspace": {
+                    "criterion": {
+                        "object_id": workspaceRespData.id
+                    }
+                },
+            },
+            "attributes": {
+                "name": workspaceRespData.attributes['name'],
+                "object_id": workspaceRespData.id,
+                "terraform_version": workspaceRespData.attributes['terraform-version'],
+                "description": workspaceRespData.attributes['description'],
+                "permissions": global.JSON.stringify(workspaceRespData.attributes['permissions']),
+                "actions": global.JSON.stringify(workspaceRespData.attributes['actions']),
+                "auto_apply": workspaceRespData.attributes['auto_apply']
+            },
+            "relationships": {}
+        }
+    };
+
+    processedResponses.push(templateInfo);
+    return global.JSON.stringify(processedResponses);
+}]]&gt;&lt;/script_js&gt;&lt;sys_class_name&gt;sn_cmp_rb_resourcescript&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-01-16 09:08:11&lt;/sys_created_on&gt;&lt;sys_id&gt;7e0fa2f273d200107559d65ee2f6a7b8&lt;/sys_id&gt;&lt;sys_mod_count&gt;31&lt;/sys_mod_count&gt;&lt;sys_name&gt;Azure_TFE_Provision_Response_Processor&lt;/sys_name&gt;&lt;sys_package display_value="Cloud Management: Terraform Connector" source="sn_cmp_terraform"&gt;9b04ffc20b1323002530a387b6673a1d&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Cloud Management: Terraform Connector"&gt;9b04ffc20b1323002530a387b6673a1d&lt;/sys_scope&gt;&lt;sys_update_name&gt;sn_cmp_rb_resourcescript_7e0fa2f273d200107559d65ee2f6a7b8&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-01-21 20:26:12&lt;/sys_updated_on&gt;&lt;type&gt;7&lt;/type&gt;&lt;/sn_cmp_rb_resourcescript&gt;&lt;/record_update&gt;</payload>
+<payload_hash>1772406206</payload_hash>
+<remote_update_set display_value="CMPAutogen-TF Azure Simple VM1 2020-03-29 08:16:48">676fda5edb3f4450d7905ff25e96196b</remote_update_set>
+<replace_on_upgrade>true</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2020-03-29 08:16:48</sys_created_on>
+<sys_id>ef6fda5edb3f4450d7905ff25e96196b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>171255d5e680000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2020-03-29 08:16:48</sys_updated_on>
+<table/>
+<target_name>Azure_TFE_Provision_Response_Processor</target_name>
+<type>Resource Script</type>
+<update_domain>global</update_domain>
+<update_guid>a76fda5efe3f4450a377ba3761caf766</update_guid>
+<update_guid_history>a76fda5efe3f4450a377ba3761caf766:1772406206,b6bd305824e34810e7a195736524ab29:1772406206</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>

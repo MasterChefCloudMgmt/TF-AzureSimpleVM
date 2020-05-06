@@ -1,0 +1,4 @@
+Generated Update Sets should be imported in the following order:
+
+1.CMPAutogen-TF Azure Simple VM0 2020-03-29 08:16:15 FileName:sys_remote_update_set_cb6f9a5edb3f4450d7905ff25e9619c4.xml
+2.CMPAutogen-TF Azure Simple VM1 2020-03-29 08:16:48 FileName:sys_remote_update_set_676fda5edb3f4450d7905ff25e96196b.xml
